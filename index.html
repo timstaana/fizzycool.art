@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ⓕⓘⓩⓩⓨ ⓒⓞⓞⓛ</title>
+
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+
+      body, html {
+        font-family: 'Bitter', serif;
+
+      	background-color: #fcce52;
+        color: #171716;
+
+        cursor: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), auto;
+
+      	display: flex;
+        flex-direction: column;
+        justify-content: center;
+      	height: 100vh;
+      }
+
+      div {text-align: center;}
+      .cursor {
+        width: 0; height: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      .cursor::after {
+        content: "☹︎";
+        font-size: 10em;
+        position: absolute;
+        /* top: -.5em;
+        left: -.5em; */
+      }
+    </style>
+
+    <script src="blotter.min.js"></script>
+    <script src="liquidDistortMaterial.js"></script>
+  </head>
+  <body>
+    <div id="blotter-container"></div>
+    <div class="cursor"></div>
+    <script type="text/javascript">
+      document.fonts.ready.then(function () {
+      	// Define text style
+      	const text = new Blotter.Text('Fizzy Cool', {
+      		family: "'Bitter', serif",
+      		size: 150,
+      		paddingLeft: 50,
+      		paddingRight: 50,
+      		fill: '#171716'
+      	});
+
+      	// Use a material
+      	// https://blotter.js.org/#/materials
+      	let material = new Blotter.LiquidDistortMaterial();
+
+      	// Set material opts
+      	material.uniforms.uSpeed.value = 0.3;
+      	material.uniforms.uVolatility.value = 0.10;
+      	material.uniforms.uSeed.value = 0.1;
+
+      	let blotter = new Blotter(material, {
+      		texts: text
+      	});
+
+      	// Apply to element
+      	let scope = blotter.forText(text);
+      	let elem = document.getElementById('blotter-container');
+      	scope.appendTo(elem);
+      }.bind(this));
+
+      //// cursor
+      const cursor = document.querySelector('.cursor');
+
+      document.addEventListener('mousemove', e => {
+          cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+      })
+    </script>
+  </body>
+</html>
