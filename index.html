@@ -2,57 +2,187 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>ⓕⓘⓩⓩⓨ ⓒⓞⓞⓛ</title>
 
 
     <style>
-      @import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Bitter|Heebo&display=swap');
+
+      * {
+        margin: 0; padding: 0;
+      }
+
+      h1, h2, h3 {
+        font-size: 1em;
+        font-weight: 400;
+      }
 
       body, html {
-        font-family: 'Bitter', serif;
+        font-family: 'Heebo', sans-serif;
+        font-size: 1.1em;
+        line-height: 1.3em;
 
       	background-color: #fcce52;
         color: #171716;
 
-        cursor: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), auto;
-
-      	display: flex;
-        flex-direction: column;
         justify-content: center;
-      	height: 100vh;
-        width: 100vw;
+
+
+        margin: 0;
+        padding: 0;
+
+        overflow-x: hidden;
       }
 
-      div {text-align: center;}
-      .cursor {
-        width: 0; height: 0;
-        position: absolute;
-        pointer-events: none;
+      body {
+        height: 100vh;
+        scroll-snap-type: y mandatory;
       }
-      .cursor::after {
-        content: "☹︎";
-        font-size: 10em;
-        position: absolute;
-        /* top: -.5em;
-        left: -.5em; */
+
+      header h1 {display: none;}
+      header {
+        width: calc(100vw - 2em);
+        height: calc(100vh - 2em);
+
+        padding: 1em;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        grid-gap: 1em;
+
+        scroll-snap-align: start;
+      }
+      header canvas {
+        grid-column: 1/-1;
+        order: -1;
+
+        justify-self: center;
+        align-self: center;
+      }
+
+      header ul li {
+        display: inline-block;
+      }
+      header ul a{
+        text-decoration: none;
+      }
+      header ul a{
+        display: inline-block;
+        padding: .1em .5em;
+        margin: .1em;
+
+        border: .1em solid #171716;
+        border-radius: 1em;
+
+        /* color: #fcce52; */
+        color: #171716;
+      }
+      header ul a:hover{
+        color: #171716;
+        background: #eee;
+      }
+      header ul li h3:after {
+        content:',';
+        position: relative;
+        left: .1em;
+      }
+
+
+      header ul li:nth-last-of-type(2) h3:after {
+        content:'';
+      }
+      header ul li:last-of-type h3:after {
+        content:'';
+      }
+      header ul li:last-of-type h3:before {
+        position: relative;
+        content:'&';
+        right: .2em;
+      }
+      header ul li:last-of-type {
+        margin-left: .2em;
+      }
+
+      header ul li:only-of-type {
+        margin-left: 0;
+      }
+      header ul li:only-of-type h3:before {
+        content:'';
+      }
+
+      main {
+        width: 100vw;
+        min-height: 80vh;
+        background: #eee;
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (min-width: 60em){
+        header {
+          grid-template-columns: 70% 30%;
+        }
       }
     </style>
-
     <script src="blotter.min.js"></script>
     <script src="liquidDistortMaterial.js"></script>
   </head>
   <body>
-    <div id="blotter-container"></div>
+    <div class="">
+
+    </div>
+    <header id="blotter-container">
+      <h1>Fizzy Cool</h1>
+      <ul>
+        <h2>Current Artists:</h2>
+        <li>
+          <h3><a href="https://jameslinds.com/">James Lindsay</a></h3>
+        </li>
+        <li>
+          <h3><a href="https://leomirzaie.com/">Leo Mirzaie</a></h3>
+        </li>
+        <li>
+          <h3><a href="https://www.instagram.com/justholdononesec/">Leon Truong</a></h3>
+        </li>
+        <li>
+          <h3><a href="http://megantan.com.au/">Megan Tan</a></h3>
+        </li>
+        <li>
+          <h3><a href="https://www.instagram.com/tiff.__.yue/">Tiff Yue</a></h3>
+        </li>
+        <li>
+          <h3><a href="https://timmy.dog">Tim Sta-Ana</a></h3>
+        </li>
+        <li>
+          <h3><a href="https://instagram.com/tom_groenestyn">Tom Groenestyn</a></h3>
+        </li>
+      </ul>
+
+      <ul>
+        <h2>Next Event:</h2>
+        <li>
+          <h3><a href="https://www.facebook.com/events/550204542480547/">Festival of the Photocopier</a></h3>
+        </li>
+      </ul>
+    </header>
+    <main>
+      hi
+    </main>
+
     <div class="cursor"></div>
     <script type="text/javascript">
       document.fonts.ready.then(function () {
 
       	// Define text style
       	const text = new Blotter.Text('Fizzy Cool', {
-      		family: "'Bitter', serif",
-      		size: 150,
-      		paddingLeft: 50,
-      		paddingRight: 50,
+      		family: "'Heebo', sans-serif",
+      		size: 60,
+      		paddingLeft: 25,
+      		paddingRight: 25,
       		fill: '#171716'
       	});
 
