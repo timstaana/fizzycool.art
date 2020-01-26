@@ -10,10 +10,10 @@
       @import url('https://fonts.googleapis.com/css?family=Bitter|Heebo&display=swap');
 
       * {
-        margin: 0; padding: 0;
+        margin: 0; padding: 0; box-sizing:border-box;
       }
 
-      h1, h2, h3 {
+      h1, h2, h3, h4 {
         font-size: 1em;
         font-weight: 400;
       }
@@ -65,13 +65,13 @@
         align-self: center;
       }
 
-      header ul li {
+      ul li {
         display: inline-block;
       }
-      header ul a{
+      ul a{
         text-decoration: none;
       }
-      header ul a{
+      ul a{
         display: inline-block;
         padding: .1em .5em;
         margin: .1em;
@@ -82,37 +82,72 @@
         /* color: #fcce52; */
         color: #0c63cc;
       }
-      header ul a:hover{
+      ul a:hover{
         background: #0c63cc;
         color: #eee;
       }
-      header ul li h3:after {
+      ul li h3:after {
         content:',';
         position: relative;
         left: .1em;
       }
 
 
-      header ul li:nth-last-of-type(2) h3:after {
+      ul li:nth-last-of-type(2) h3:after {
         content:'';
       }
-      header ul li:last-of-type h3:after {
+      ul li:last-of-type h3:after {
         content:'';
       }
-      header ul li:last-of-type h3:before {
+      ul li:last-of-type h3:before {
         position: relative;
         content:'&';
         right: .2em;
       }
-      header ul li:last-of-type {
+      ul li:last-of-type {
         margin-left: .2em;
       }
 
-      header ul li:only-of-type {
+      ul li:only-of-type {
         margin-left: 0;
       }
-      header ul li:only-of-type h3:before {
+      ul li:only-of-type h3:before {
         content:'';
+      }
+
+      main {
+        padding: .25em 1em 1em;
+        display: grid;
+        grid-gap: 1em;
+        scroll-snap-align: start;
+      }
+
+      .boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+        grid-gap: 1em;
+      }
+      .boxes li h2 {
+        padding: .5em .7em .2em;
+        border-bottom: .1em solid #0c63cc;
+        grid-column: 1/-1;
+      }
+      .boxes li {
+        width: 100%;
+        border: .1em solid #0c63cc;
+        border-radius: 1em;
+        margin: 0 !important;
+        margin-top: .5em;
+        scroll-snap-align: start;
+      }
+      .boxes img {
+        width: 100%;
+      }
+      .boxes .content {
+        padding: 1em;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: .5em;
       }
 
       @media (min-width: 60em){
@@ -125,9 +160,6 @@
     <script src="liquidDistortMaterial.js"></script>
   </head>
   <body>
-    <div class="">
-
-    </div>
     <header id="blotter-container">
       <h1>Fizzy Cool</h1>
       <ul>
@@ -162,6 +194,44 @@
         </li>
       </ul>
     </header>
+
+    <main>
+      <ul>
+        <h2>Previous Events:</h2>
+        <li>
+          <h3><a href="https://timmy.dog/artshow/">Art Show in the Small Long House</a></h3>
+        </li>
+      </ul>
+
+      <ul>
+        <h2>Previous Artists:</h2>
+        <li>
+          <h3>Jess Eddy</h3>
+        </li>
+        <li>
+          <h3>Nikhil Markale</h3>
+        </li>
+        <li>
+          <h3>Kathy Sarpi</h3>
+        </li>
+      </ul>
+
+      <ul class="boxes">
+        <li>
+          <h2>About:</h2>
+          <div class="content">
+            <p>Hello! Fizzy Cool is an art collective of friends who just wanna make cool stuff ☺</p>
+            <p>Made up of artists from many different disciplines ranging from traditional paints, interactive media, animation and design.</p>
+          </div>
+        </li>
+        <li>
+          <h2>Contact:</h2>
+          <div class="content">
+            <p>You can email us at: <a href="mailto:hi@fizzycool.art">hi@fizzycool.art</a></p>
+          </div>
+        </li>
+      </ul>
+    </main>
 
     <div class="cursor"></div>
     <script type="text/javascript">
