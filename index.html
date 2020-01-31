@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>ⓕⓘⓩⓩⓨ ⓒⓞⓞⓛ</title>
-    <meta name="theme-color" content="#0c63cc">
+    <meta name="theme-color" content="#F094D0">
     <meta name="description" content="Hello! Fizzy Cool is an art collective of friends who just wanna make cool stuff ☺">
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -14,8 +14,8 @@
     <meta property="og:title"              content="ⓕⓘⓩⓩⓨ ⓒⓞⓞⓛ" />
     <meta property="og:description"        content="Hello! Fizzy Cool is an art collective of friends who just wanna make cool stuff ☺" />
 
-    <meta property="twitter:image"         content="https://fizzycool.art/cover1.png" />
-    <meta property="og:image"              content="https://fizzycool.art/cover1.png" />
+    <meta property="twitter:image"         content="https://fizzycool.art/cover.png" />
+    <meta property="og:image"              content="https://fizzycool.art/cover.png" />
     <meta property="og:image:type"         content="image/png" />
     <style>
       @import url('https://fonts.googleapis.com/css?family=Bitter|Heebo&display=swap');
@@ -35,7 +35,7 @@
         line-height: 1.3em;
 
       	background-color: #eee;
-        color: #0c63cc;
+        color: #F094D0;
 
         justify-content: center;
 
@@ -59,14 +59,13 @@
         height: 100%;
         box-sizing:border-box;
 
-        padding: 1em;
-
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto;
         grid-gap: 1em;
 
         scroll-snap-align: start;
+
       }
       header canvas {
         grid-column: 1/-1;
@@ -74,6 +73,20 @@
 
         justify-self: center;
         align-self: center;
+
+
+      }
+
+      header .background {
+        grid-column: 1/-1;
+        order: -1;
+        background-image: url('logo_foam.svg');
+        background-position: center;
+        background-size: contain;
+      }
+
+      header ul {
+        padding: 0 1em 1em;
       }
 
       ul li {
@@ -87,14 +100,14 @@
         padding: .1em .5em;
         margin: .1em;
 
-        border: .1em solid #0c63cc;
+        border: .1em solid #F094D0;
         border-radius: 1em;
 
         /* color: #fcce52; */
-        color: #0c63cc;
+        color: #F094D0;
       }
       ul a:hover{
-        background: #0c63cc;
+        background: #F094D0;
         color: #eee;
       }
       ul li h3:after {
@@ -140,12 +153,12 @@
       }
       .boxes li h2 {
         padding: .5em .7em .2em;
-        border-bottom: .1em solid #0c63cc;
+        border-bottom: .1em solid #F094D0;
         grid-column: 1/-1;
       }
       .boxes li {
         width: 100%;
-        border: .1em solid #0c63cc;
+        border: .1em solid #F094D0;
         border-radius: 1em;
         margin: 0 !important;
         margin-top: .5em;
@@ -171,7 +184,8 @@
     <script src="liquidDistortMaterial.js"></script>
   </head>
   <body>
-    <header id="blotter-container">
+    <header>
+      <div class="background"></div>
       <h1>Fizzy Cool</h1>
       <ul>
         <h2>Current Artists:</h2>
@@ -249,7 +263,7 @@
       		size: 60,
       		paddingLeft: 25,
       		paddingRight: 25,
-      		fill: '#0c63cc'
+      		fill: '#F094D0'
       	});
 
       	// Use a material
