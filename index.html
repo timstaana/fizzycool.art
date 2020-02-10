@@ -140,10 +140,14 @@
       }
 
       main {
-        padding: .25em 1em 1em;
+        padding: 1em 1em 1em;
         display: grid;
         grid-gap: 1em;
         scroll-snap-align: start;
+
+        min-height: 100vh;
+
+        grid-template-rows: auto 1fr;
       }
 
       .boxes {
@@ -214,15 +218,16 @@
 
       <ul>
         <h2>Next Event:</h2>
-        <li>
-          <h3><a href="https://www.facebook.com/events/550204542480547/">Festival of the Photocopier</a></h3>
-        </li>
+        <li>No planned events yet..</li>
       </ul>
     </header>
 
     <main>
       <ul>
         <h2>Previous Events:</h2>
+        <li>
+          <h3><a href="https://www.facebook.com/events/550204542480547/">Festival of the Photocopier</a></h3>
+        </li>
         <li>
           <h3><a href="https://timmy.dog/artshow/">Art Show in the Small Long House</a></h3>
         </li>
